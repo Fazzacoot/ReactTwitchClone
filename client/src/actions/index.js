@@ -29,7 +29,7 @@ export const createStream = formValues => async (dispatch, getState) => {
   dispatch({ type: CREATE_STREAM, payload: response.data });
 
   //push navigates user to new page
-  history.push('/')
+  history.push("/");
 };
 
 export const fetchStreams = () => async dispatch => {
@@ -47,10 +47,13 @@ export const editStream = (id, formValues) => async dispatch => {
   dispatch({ type: EDIT_STREAM, payload: response.data });
 
   //push navigates user to new page
-  history.push('/')
+  history.push("/");
 };
 
 export const deleteStream = id => async dispatch => {
   await streams.delete(`/streams/${id}`);
   dispatch({ type: DELETE_STREAM, payload: id });
+
+  //push navigates user to new page
+  history.push("/");
 };
